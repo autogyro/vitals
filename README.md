@@ -40,7 +40,7 @@ If you are submitting a bug, please describe the bug in detail and how to replic
 If you are submitting a feature idea, please describe it in detail and document the potential use cases of that feature if it isn't clear.
 
 ## Credits
-- @kylecorry31 - Initial work
+- [@kylecorry31](https://github.com/kylecorry31) - Initial work
 
 ## License
 You are free to copy, modify, and distribute vitals with attribution under the terms of the MIT license. See the [LICENSE](LICENSE) file for details.
