@@ -64,8 +64,8 @@ fn classify_blood_pressure(blood_pressure: &BloodPressureReading) -> BloodPressu
 
 fn main() {
     let version = format!("{}", crate_version!());
-    let matches = App::new("blood_pressure")
-        .about("Log your blood pressure.")
+    let matches = App::new("vitals")
+        .about("Log your vitals.")
         .version(version.as_str())
         .global_setting(AppSettings::ColoredHelp)
         .global_setting(AppSettings::UnifiedHelpMessage)
@@ -79,6 +79,9 @@ fn main() {
         .arg(Arg::with_name("pulse")
             .required(true)
             .help("Your pulse in bpm"))
+        .arg(Arg::with_name("file")
+            .required(true)
+            .help("The file to log your vitals to (csv format)."))
         .get_matches();
 
     // Read vitals from command line
@@ -89,18 +92,18 @@ fn main() {
     let systolic = matches.value_of("systolic").unwrap().parse::<u32>().unwrap();
     let diastolic = matches.value_of("diastolic").unwrap().parse::<u32>().unwrap();
     let pulse = matches.value_of("pulse").unwrap().parse::<u32>().unwrap();
+    let file = matches.value_of("file").unwrap();
 
     // Open/create vitals.csv
+    let data_len = files::read(file).unwrap().len();
 
     // If file is empty, write csv headers
-    let data_len = files::read("vitals.csv").unwrap().len();
-
     if data_len == 0 {
-        files::append("vitals.csv", "date,time,systolic,diastolic,pulse\n").unwrap();
+        files::append(file, "date,time,systolic,diastolic,pulse\n").unwrap();
     }
 
     // Write to file in CSV format
-    files::append("vitals.csv", format!("{},{},{},{},{}\n", date, time, systolic, diastolic, pulse)).unwrap();
+    files::append(file, format!("{},{},{},{},{}\n", date, time, systolic, diastolic, pulse)).unwrap();
 
     // Display information about the last vitals log (blood pressure classification, heart rate classification)
     let blood_pressure_reading = BloodPressureReading::new(systolic, diastolic, pulse);

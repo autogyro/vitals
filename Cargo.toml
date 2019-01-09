@@ -1,5 +1,5 @@
 [package]
-name = "blood_pressure"
+name = "vitals"
 version = "0.1.0"
 authors = ["Kyle Corry <kylecorry31@gmail.com>"]
 edition = "2018"
