@@ -4,8 +4,7 @@ A program to log your vitals (blood pressure, pulse) for further analysis.
 ## Getting started
 
 ### Dependencies
-- cargo
-- rustc
+- python3
 
 ### Install
 To install, ensure you have the required dependencies above, then run the following command:
@@ -17,18 +16,16 @@ make install
 Once the CLI is installed, you can run the following command from the terminal.
 
 ```shell
-USAGE:
-    vitals <systolic> <diastolic> <pulse> <file>
+usage: vitals [-h] systolic diastolic pulse log_file
 
-OPTIONS:
-    -h, --help       Prints help information
-    -V, --version    Prints version information
+positional arguments:
+  systolic    Your systolic blood pressure in mm Hg
+  diastolic   Your diastolic blood pressure in mm Hg
+  pulse       Your pulse in BPM
+  log_file    The path to the log file.
 
-ARGS:
-    <systolic>     Your systolic blood pressure reading in mmHg
-    <diastolic>    Your diastolic blood pressure reading in mmHg
-    <pulse>        Your pulse in bpm
-    <file>         The file to log your vitals to (csv format).
+optional arguments:
+  -h, --help  show this help message and exit
 ```
 
 ## Contributing

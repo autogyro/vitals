@@ -1,9 +1,0 @@
-[package]
-name = "vitals"
-version = "0.1.0"
-authors = ["Kyle Corry <kylecorry31@gmail.com>"]
-edition = "2018"
-
-[dependencies]
-clap = "2.32.0"
-chrono = "0.4.6"
