@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Vitals
+GenericName=Vitals
+Comment=Log your vitals
+Categories=System;
+Exec=vitals_gui
+Icon=vitals.png
+Terminal=false
+Type=Application
+Keywords=Python;Health

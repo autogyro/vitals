@@ -1,0 +1,3 @@
+#!/usr/bin/python3
+
+from vitals_gui import main
