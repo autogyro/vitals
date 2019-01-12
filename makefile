@@ -4,7 +4,7 @@ prefix ?= ~/.local
 exec_prefix = $(prefix)
 bindir = $(exec_prefix)/bin
 
-.PHONY: install uninstall
+.PHONY: install uninstall test
 
 BIN=vitals
 
@@ -13,3 +13,6 @@ install:
 
 uninstall:
 	rm -f $(DESTDIR)$(bindir)/$(BIN)
+
+test:
+	python3 src/test_vitals.py
