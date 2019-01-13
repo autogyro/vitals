@@ -111,6 +111,9 @@ class VitalsTest(unittest.TestCase):
         self.assertEqual(True, vitals.is_proper_csv('one,two,three\n1,2,3\n4,5,6', 3))
         self.assertEqual(False, vitals.is_proper_csv('one,two,three\n1,2,3\n4,5,6', 4))
 
+        # It doesn't care about empty columns
+        self.assertEqual(True, vitals.is_proper_csv('one,two,three\n1,,3\n,,'))
+
 
 
 if __name__ == '__main__':
